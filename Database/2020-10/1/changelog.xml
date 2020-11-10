@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet id="2020-10.1.0" author="Omsk.Petr@gmail.com">
+        <comment>Create department table</comment>
+        <createTable tableName="departments" remarks="departments table">
+            			
+			<column name="department_id" type="int" autoIncrement="true"
+                    remarks="department id">
+                <constraints nullable="false" primaryKey="true" />
+			</column>
+   		
+            <column name="name" type="nvarchar(256)"
+                    remarks="Name Of department">
+                <constraints nullable="false" />
+			</column>
+			
+			 <column name="head_of_department" type="nvarchar(256)"
+                    remarks="Head of department">
+                <constraints nullable="false" />
+			</column>
+												
+        </createTable>
+    </changeSet>
+	
+	<changeSet id="2020-10.1.1" author="Omsk.Petr@gmail.com">
+        <comment>Create group table</comment>
+        <createTable tableName="groups" remarks="groups table">
+            			
+			<column name="group_id" type="int" autoIncrement="true"
+                    remarks="group id">
+                <constraints nullable="false" primaryKey="true" />
+			</column>
+   		
+           	<column name="department_id" type="int"
+                    remarks="department id">
+                <constraints nullable="false" />
+			</column>
+   			
+			<column name="name" type="nvarchar(256)"
+                    remarks="Name Of department">
+                <constraints nullable="false" />
+			</column>
+					
+        </createTable>
+
+		<addForeignKeyConstraint baseColumnNames="department_id"
+									 baseTableName="groups"
+									 constraintName="fk_departments_id"
+									 referencedColumnNames="department_id"
+									 referencedTableName="departments"
+									 onDelete="CASCADE"/>			
+    </changeSet>
+	
+		<changeSet id="2020-10.1.2" author="Omsk.Petr@gmail.com">
+        <comment>Create students table</comment>
+        <createTable tableName="students" remarks="students table">
+            			
+			<column name="student_id" type="int" autoIncrement="true"
+                    remarks="student id">
+                <constraints nullable="false" primaryKey="true" />
+			</column>
+   		
+           	<column name="group_id" type="int"
+                    remarks="group id">
+                 <constraints nullable="false" references="groups" foreignKeyName="fk_group_id"/>
+			</column>
+   			
+			<column name="fio" type="nvarchar(256)"
+                    remarks="Name Of department">
+                <constraints nullable="false" />
+			</column>
+												
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
