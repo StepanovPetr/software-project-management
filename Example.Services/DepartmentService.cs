@@ -31,7 +31,7 @@ namespace Example.Services
             }
         }
 
-        Department GetDepartmentById(int id)
+        public Department GetDepartmentById(int id)
         {
             using (var context = new ExampleContext())
             {

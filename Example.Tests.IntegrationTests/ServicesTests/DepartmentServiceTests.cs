@@ -4,13 +4,13 @@ using Example.Domain.Entities;
 using Example.Services;
 using NUnit.Framework;
 
-namespace Example.Tests.IntegrationTests
+namespace Example.Tests.IntegrationTests.ServicesTests
 {
     public class Tests
     {
         private const string DefaultName = "ФИТиКС";
-        private const string DefaultHead = "Валерий кипелов";
-        private const string DefaultGroupName = "ИВТ";
+        private const string DefaultHead = "Валерий Кипелов";
+        private const string DefaultGroupName = "ИВТ-666";
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
@@ -18,8 +18,8 @@ namespace Example.Tests.IntegrationTests
             Remove();
         }
 
-        [OneTimeTearDown]
-        public void OneTimeTearDown()
+        [TearDown]
+        public void TearDown()
         {
             Remove();
         }
@@ -60,7 +60,6 @@ namespace Example.Tests.IntegrationTests
             var department = new Department { Name = DefaultName , Head = DefaultHead };
             department.Groups ??= new List<Group>();
             department.Groups.Add(new Group { Name = DefaultGroupName });
-            //department.Groups.Add(new Group { DefaultName = "ИВТ-2" });
 
             repo.Add(department);
             var departments = repo.GetDepartments().SingleOrDefault(d => d.Name == DefaultName && d.Head == DefaultHead);
@@ -72,6 +71,35 @@ namespace Example.Tests.IntegrationTests
             Assert.AreEqual(DefaultHead, departments.Head);
             Assert.AreEqual(1, departments.Groups.Count);
             Assert.AreEqual(DefaultGroupName, departments.Groups.SingleOrDefault().Name);
+        }
+
+        [Test]
+        public void WhenAddNewDepartmentWithGroupsToEmptyCollection_ShouldCollectionIncludeOneElement()
+        {
+            // Arrange
+            var repo = new DepartmentService();
+            var startingDepartments = repo.GetDepartments().Where(d => d.Name == DefaultName && d.Head == DefaultHead);
+
+            // Act
+            var department = new Department { Name = DefaultName, Head = DefaultHead };
+            department.Groups ??= new List<Group>();
+            department.Groups.Add(new Group { Name = DefaultGroupName });
+            department.Groups.Add(new Group { Name = DefaultGroupName });
+
+            repo.Add(department);
+            var departments = repo.GetDepartments().SingleOrDefault(d => d.Name == DefaultName && d.Head == DefaultHead);
+
+            //Assert
+            Assert.IsTrue(!startingDepartments.Any());
+            Assert.IsNotNull(departments);
+            Assert.AreEqual(DefaultName, departments.Name);
+            Assert.AreEqual(DefaultHead, departments.Head);
+            Assert.AreEqual(2, departments.Groups.Count);
+            foreach (var departmentsGroup in departments.Groups)
+            {
+                Assert.AreEqual(DefaultGroupName, departmentsGroup.Name);
+            }
+            
         }
     }
 }
