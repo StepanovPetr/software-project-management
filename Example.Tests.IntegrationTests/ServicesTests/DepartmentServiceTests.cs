@@ -99,7 +99,6 @@ namespace Example.Tests.IntegrationTests.ServicesTests
             {
                 Assert.AreEqual(DefaultGroupName, departmentsGroup.Name);
             }
-            
         }
     }
 }

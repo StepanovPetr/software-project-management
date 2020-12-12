@@ -8,11 +8,17 @@ namespace Example.Api.Controllers
     [ApiController]
     public class DepartmentController : ControllerBase
     {
+        private readonly IDepartmentService _repo;
+
+        public DepartmentController(IDepartmentService repo)
+        {
+            _repo = repo;
+        }
+
         [HttpGet]
         public Department Get(int id)
         {
-            var repo = new DepartmentService();
-            return repo.GetDepartmentById(id);
+            return _repo.GetDepartmentById(id);
         }
     }
 }

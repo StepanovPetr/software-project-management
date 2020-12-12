@@ -7,14 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Example.Services
 {
-    public class DepartmentService
+    public class DepartmentService : IDepartmentService
     {
         public void Add(Department department)
         {
             using (var context = new ExampleContext())
             {
-                context.Database.CanConnect();
-
                 context.Departments.Add(department);
                 context.SaveChanges();
             }
@@ -24,8 +22,6 @@ namespace Example.Services
         {
             using (var context = new ExampleContext())
             {
-                context.Database.CanConnect();
-
                 return context.Departments.Include( d=>d.Groups)
                     .ToList();
             }

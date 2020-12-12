@@ -10,7 +10,7 @@
         <comment>Create department table</comment>
         <createTable tableName="departments" remarks="departments table">
             			
-			<column name="department_id" type="int" autoIncrement="true"
+			<column name="department_id" type="int"
                     remarks="department id">
                 <constraints nullable="false" primaryKey="true" />
 			</column>
@@ -32,14 +32,14 @@
         <comment>Create group table</comment>
         <createTable tableName="groups" remarks="groups table">
             			
-			<column name="group_id" type="int" autoIncrement="true"
+			<column name="group_id" type="int"
                     remarks="group id">
                 <constraints nullable="false" primaryKey="true" />
 			</column>
    		
            	<column name="department_id" type="int"
                     remarks="department id">
-                <constraints nullable="false" />
+                <constraints nullable="false" references="departments" foreignKeyName="fk_departments_id"/>
 			</column>
    			
 			<column name="name" type="nvarchar(256)"
@@ -47,21 +47,14 @@
                 <constraints nullable="false" />
 			</column>
 					
-        </createTable>
-
-		<addForeignKeyConstraint baseColumnNames="department_id"
-									 baseTableName="groups"
-									 constraintName="fk_departments_id"
-									 referencedColumnNames="department_id"
-									 referencedTableName="departments"
-									 onDelete="CASCADE"/>			
+        </createTable>		
     </changeSet>
 	
 		<changeSet id="2020-10.1.2" author="Omsk.Petr@gmail.com">
         <comment>Create students table</comment>
         <createTable tableName="students" remarks="students table">
             			
-			<column name="student_id" type="int" autoIncrement="true"
+			<column name="student_id" type="int"
                     remarks="student id">
                 <constraints nullable="false" primaryKey="true" />
 			</column>

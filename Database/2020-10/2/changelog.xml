@@ -9,21 +9,25 @@
 	<changeSet id="2020-10.2.0" author="Omsk.Petr@gmail.com">
         <comment>Insert to departments table</comment>
 		<insert tableName="departments">
+			<column name="department_id" value="1"/>
 			<column name="name" value="Автоматизированные системы обработки информации и управления"/>
 			<column name="head_of_department" value="Никонов Александр Васильевич"/>
 		</insert>
 		
 		<insert tableName="departments">
+			<column name="department_id" value="2"/>
 			<column name="name" value="Информатика и вычислительная техника"/>
 			<column name="head_of_department" value="Грицай Александр Сергееви"/>
 		</insert>
 		
 		<insert tableName="departments">
+			<column name="department_id" value="3"/>
 			<column name="name" value="Комплексная защита информации"/>
 			<column name="head_of_department" value="Ложников Павел Сергеевич"/>
 		</insert>
 		
 		<insert tableName="departments">
+			<column name="department_id" value="4"/>
 			<column name="name" value="Электроника"/>
 			<column name="head_of_department" value="Захаренко Владимир Андреевич"/>
 		</insert>
@@ -32,16 +36,19 @@
 	<changeSet id="2020-10.2.1" author="Omsk.Petr@gmail.com">
         <comment>Insert to groups table</comment>
 		<insert tableName="groups">
+			<column name="group_id" value="1"/>
 			<column name="name" value="АСОИУ-1"/>
 			<column name="department_id" value="1"/>
 		</insert>
 		
 		<insert tableName="groups">
+			<column name="group_id" value="2"/>
 			<column name="name" value="АСОИУ-2"/>
 			<column name="department_id" value="1"/>
 		</insert>
 		
 		<insert tableName="groups">
+			<column name="group_id" value="3"/>
 			<column name="name" value="АСОИУ-3"/>
 			<column name="department_id" value="2"/>
 		</insert>
@@ -50,51 +57,61 @@
 		<changeSet id="2020-10.2.2" author="Omsk.Petr@gmail.com">
         <comment>Insert to students table</comment>
 		<insert tableName="students">
+			<column name="student_id" value="1"/>
 			<column name="fio" value="Кипелов Валерий Александрович"/>
 			<column name="group_id" value="1"/>
 		</insert>
 		
 		<insert tableName="students">
+			<column name="student_id" value="2"/>
 			<column name="fio" value="Дубинин Виталий Алексеевич"/>
 			<column name="group_id" value="1"/>
 		</insert>
 		
 		<insert tableName="students">
+			<column name="student_id" value="3"/>
 			<column name="fio" value="Холстинин Владимир Петрович"/>
 			<column name="group_id" value="1"/>
 		</insert>
 		
 		<insert tableName="students">
+			<column name="student_id" value="4"/>
 			<column name="fio" value="Самосват Максим Вячеславович"/>
 			<column name="group_id" value="2"/>
 		</insert>
 		
 		<insert tableName="students">
+			<column name="student_id" value="5"/>
 			<column name="fio" value="Юрий Мелесов"/>
 			<column name="group_id" value="2"/>
 		</insert>
 		
 		<insert tableName="students">
+			<column name="student_id" value="6"/>
 			<column name="fio" value="Окунев Павел Андреевич"/>
 			<column name="group_id" value="2"/>
 		</insert>
 		
 		<insert tableName="students">
+			<column name="student_id" value="7"/>
 			<column name="fio" value="Горшенёв Алексей Юрьевич"/>
 			<column name="group_id" value="3"/>
 		</insert>
 		
 		<insert tableName="students">
+			<column name="student_id" value="8"/>
 			<column name="fio" value="Дмитрий Гусев"/>
 			<column name="group_id" value="3"/>
 		</insert>
 		
 		<insert tableName="students">
+			<column name="student_id" value="9"/>
 			<column name="fio" value="Дмитрий Оганян"/>
 			<column name="group_id" value="3"/>
 		</insert>
 		
 		<insert tableName="students">
+			<column name="student_id" value="10"/>
 			<column name="fio" value="Роман Николаев"/>
 			<column name="group_id" value="3"/>
 		</insert>
