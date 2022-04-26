@@ -10,7 +10,6 @@ CREATE Table persons
  id int PRIMARY KEY,
  last_name varchar NOT NULL,
  first_name varchar NOT NULL,
- midle_name varchar,
  phone varchar(11)
 );
 
@@ -35,7 +34,6 @@ CREATE Table owners
  FOREIGN KEY (transport_id) REFERENCES transports (id),
  FOREIGN KEY (person_id) REFERENCES persons (id)
 );
-
 
 CREATE Table works
 (

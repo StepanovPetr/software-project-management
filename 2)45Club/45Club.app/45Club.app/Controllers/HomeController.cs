@@ -20,9 +20,9 @@ namespace _45Club.app.Controllers
 
         public IActionResult Index()
         {
-            Contex contex = new Contex();
+            Context context = new Context();
 
-            var result =  contex.Persons.ToList();
+            var result =  context.Persons.ToList();
 
             return View();
         }
