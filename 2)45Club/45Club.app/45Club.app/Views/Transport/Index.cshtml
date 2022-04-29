@@ -1,0 +1,91 @@
+﻿@model IEnumerable<_45Club.app.Models.Entities.Transport>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    <a asp-action="Create">Добавить транспорт</a>
+</p>
+
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        @Html.Label("Vin", "Vin")
+                    </div>
+                    @Html.TextBox("Vin")
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        @Html.Label("StateSign", "Гос. номер")
+                    </div>
+                    @Html.TextBox("StateSign")
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        @Html.Label("Model", "Модель")
+                    </div>
+                    @Html.TextBox("Model")
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Поиск" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.View)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfIssue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StateSign)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.View)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfIssue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StateSign)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

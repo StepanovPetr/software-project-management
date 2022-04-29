@@ -7,7 +7,7 @@ set schema '45club';
 
 CREATE Table persons
 (
- id int PRIMARY KEY,
+ id SERIAL PRIMARY KEY,
  last_name varchar NOT NULL,
  first_name varchar NOT NULL,
  phone varchar(11)
@@ -15,7 +15,7 @@ CREATE Table persons
 
 CREATE Table transports
 (
- id int PRIMARY KEY,
+ id SERIAL PRIMARY KEY,
  view int NOT NULL,
  date_of_issue date NOT NULL,
  model varchar NOT NULL,
@@ -26,7 +26,7 @@ CREATE Table transports
 
 CREATE Table owners
 (
- id int PRIMARY KEY,
+ id SERIAL PRIMARY KEY,
  transport_id int NOT NULL,
  person_id int NOT NULL,
  is_active boolean,
@@ -37,7 +37,7 @@ CREATE Table owners
 
 CREATE Table works
 (
- id int PRIMARY KEY,
+ id SERIAL PRIMARY KEY,
  transport_id int NOT NULL,
  date_of_work date NOT NULL,
  price int,

@@ -1,0 +1,101 @@
+﻿@model _45Club.app.Models.Entities.Transport
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>Transport</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.View)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.View)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfIssue)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateOfIssue)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vin)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vin)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StateSign)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StateSign)
+        </dd>
+    </dl>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayName("Дата ТО")
+        </th>
+        <th>
+            @Html.DisplayName("Цена")
+        </th>
+        <th>
+            @Html.DisplayName("Список работ")
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Works)
+    {
+        var dataTarget = $"#exampleModal{item.Id}";
+        var id = $"exampleModal{item.Id}";
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfWork)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target=@dataTarget>
+                    Что было сделано
+                </button>
+                
+                <div class="modal fade" id=@id tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Что было сделано</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                @item.Text
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

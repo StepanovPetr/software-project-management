@@ -12,12 +12,15 @@ namespace _45Club.app.Models.Entities
         [Column("id")]
         public int Id { get; set; }
 
+        [Display(Name = "Фамилия")]
         [Column("last_name")]
         public string LastName { get; set; }
 
+        [Display(Name = "Имя")]
         [Column("first_name")]
         public string FirstName { get; set; }
 
+        [Display(Name = "Телефон")]
         [Column("phone")]
         public string Phone { get; set; }
     }
