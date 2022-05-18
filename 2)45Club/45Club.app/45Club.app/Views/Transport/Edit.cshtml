@@ -50,6 +50,28 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Create" asp-controller="Work" method="get">
+            @Html.Hidden("Id", Model.Id)
+            <div class="form-group">
+                <input type="submit" value="Добавить работу" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <form asp-action="Create" asp-controller="Owner" method="get">
+            @Html.Hidden("transportId", Model.Id)
+            <div class="form-group">
+                <input type="submit" value="Изменить владельца" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

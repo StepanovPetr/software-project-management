@@ -38,6 +38,8 @@ namespace _45Club.app.Controllers
 
             var transport = await _context.Transports
                 .Include(t => t.Works)
+                .Include(t => t.Owners)
+                .ThenInclude(t => t.Person)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (transport == null) return NotFound();
 

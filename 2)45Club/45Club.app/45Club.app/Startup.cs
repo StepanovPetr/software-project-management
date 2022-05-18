@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using _45Club.app.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace _45Club.app
 {
@@ -25,7 +26,8 @@ namespace _45Club.app
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<Context>();
+            services.AddDbContext<Context>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("myDb")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

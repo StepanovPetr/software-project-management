@@ -36,5 +36,7 @@ namespace _45Club.app.Models.Entities
         public string StateSign { get; set; }
 
         public ICollection<Work> Works { get; set; }
+
+        public ICollection<Owners> Owners { get; set; }
     } 
 }

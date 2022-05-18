@@ -92,6 +92,39 @@
             </td>
         </tr>
     }
+    
+    
+    
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Имя Владельца")
+            </th>
+            <th>
+                @Html.DisplayName("Фамилия Владельца")
+            </th>
+            <th>
+                @Html.DisplayName("Активность")
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.Owners)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+        </tr>
+    }
+
     </tbody>
 </table>
 
