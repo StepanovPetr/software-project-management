@@ -17,12 +17,11 @@ CREATE Table transports
 (
  id SERIAL PRIMARY KEY,
  view int NOT NULL,
- date_of_issue date NOT NULL,
+ year_of_issue int NOT NULL,
  model varchar NOT NULL,
  vin varchar NOT NULL,
  state_sign varchar(11) NOT NULL
 );
-
 
 CREATE Table owners
 (
@@ -41,6 +40,7 @@ CREATE Table works
  transport_id int NOT NULL,
  date_of_work date NOT NULL,
  price int,
+ mileage int,
  text varchar,
 
  FOREIGN KEY (transport_id) REFERENCES TRANSPORTS (id)

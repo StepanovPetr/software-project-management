@@ -57,7 +57,7 @@ namespace _45Club.app.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,View,DateOfIssue,Model,Vin,StateSign")] Transport transport)
+        public async Task<IActionResult> Create([Bind("Id,View,YearOfIssue,Model,Vin,StateSign")] Transport transport)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace _45Club.app.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id,
-            [Bind("Id,View,DateOfIssue,Model,Vin,StateSign")]
+            [Bind("Id,View, year_of_issue, Model,Vin,StateSign")]
             Transport transport)
         {
             if (id != transport.Id) return NotFound();

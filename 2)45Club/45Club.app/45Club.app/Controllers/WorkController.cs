@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -57,7 +55,7 @@ namespace _45Club.app.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,DateOfWork,Price,Text,TransportId")] Work work)
+        public async Task<IActionResult> Create([Bind("Id,DateOfWork,Price,Text,TransportId,Mileage")] Work work)
         {
             if (ModelState.IsValid)
             {

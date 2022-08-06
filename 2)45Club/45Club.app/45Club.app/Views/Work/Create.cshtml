@@ -15,8 +15,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="DateOfWork" class="control-label"></label>
-                <input asp-for="DateOfWork" class="form-control" />
+                <input asp-for="DateOfWork" class="form-control" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
                 <span asp-validation-for="DateOfWork" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mileage" class="control-label"></label>
+                <input asp-for="Mileage" class="form-control" />
             </div>
             <div class="form-group">
                 <label asp-for="Price" class="control-label"></label>
@@ -25,12 +29,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="Text" class="control-label"></label>
-                
-                <textarea asp-for="Text"></textarea>
+                @* <textarea asp-for="Text"></textarea>*@
                 <input asp-for="Text" class="form-control" type="" />
                 <span asp-validation-for="Text" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" hidden="true">
                 <label asp-for="TransportId" class="control-label"></label>
                 <select asp-for="TransportId" class ="form-control" asp-items="ViewBag.TransportId"></select>
             </div>

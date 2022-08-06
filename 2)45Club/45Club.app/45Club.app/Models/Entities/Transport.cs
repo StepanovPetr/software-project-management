@@ -20,14 +20,14 @@ namespace _45Club.app.Models.Entities
         public TransportViews View { get; set; } =  TransportViews.Motorbike;
 
         [Display(Name = "Дата выпуска")]
-        [Column("date_of_issue")]
-        public DateTime DateOfIssue { get; set; }
+        [Column("year_of_issue")]
+        public int YearOfIssue { get; set; }
 
         [Display(Name = "Модель")]
         [Column("model")]
         public string Model { get; set; }
 
-        [Display(Name = "Vin")]
+        [Display(Name = "VIN")]
         [Column("vin")]
         public string Vin { get; set; }
 

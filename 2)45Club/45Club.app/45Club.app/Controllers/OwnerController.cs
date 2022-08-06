@@ -55,7 +55,6 @@ namespace _45Club.app.Controllers
                     .ToArray(),
             };
             
-
             return View(ownerCreate);
         }
 

@@ -15,7 +15,8 @@ namespace _45Club.app.Models.Entities
 
         [Display(Name = "Дата работ")]
         [Column("date_of_work")]
-        public DateTime DateOfWork { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime DateOfWork { get; set; } = System.DateTime.Today;
 
         [Display(Name = "Стоимость")]
         [Column("price")]
@@ -28,6 +29,10 @@ namespace _45Club.app.Models.Entities
         [Display(Name = "id транспорта")]
         [Column("transport_id")]
         public int TransportId { get; set; }
+
+        [Display(Name = "Пробег")]
+        [Column("mileage")]
+        public int Mileage { get; set; }
 
         public virtual Transport Transport { get; set; }
     }

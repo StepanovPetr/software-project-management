@@ -15,7 +15,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-4">
-                        @Html.Label("Vin", "Vin")
+                        @Html.Label("Vin", "VIN")
                     </div>
                     @Html.TextBox("Vin")
                 </div>
@@ -57,7 +57,7 @@
                 @Html.DisplayNameFor(model => model.View)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DateOfIssue)
+                @Html.DisplayNameFor(model => model.YearOfIssue)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Model)
@@ -73,12 +73,12 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+        <tr > 
             <td>
                 @Html.DisplayFor(modelItem => item.View)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateOfIssue)
+                @Html.DisplayFor(modelItem => item.YearOfIssue)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Model)
